@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 
+/**
+ * @author 2400048
+ */
 @Entity
 @Table(name="calendar_event_master")
 public class Calendar {
@@ -18,9 +21,6 @@ public class Calendar {
     @Column(name = "event_start_date")
     private Date eventStartDate;
 
-//    @Transient
-//    private String data;
-
     @Column(name = "event_end_date")
     private Date eventEndDate;
 
@@ -28,9 +28,6 @@ public class Calendar {
         return eventId;
     }
 
-    public void setEventId(int eventId) {
-        this.eventId = eventId;
-    }
 
     public String getEventName() {
         return eventName;

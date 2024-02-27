@@ -1,35 +1,32 @@
 package com.example.controller;
 
 import com.example.model.Calendar;
-import com.example.service.CalendarEventService;
+import com.example.service.CalendarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
+
 import java.util.Date;
 import java.util.List;
-import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 
+/**
+ * @author 2400048
+ */
 @Controller
 @RequestMapping("/api/calendar")
 public class CalendarController {
 
     @Autowired
-    CalendarEventService calendarEventService;
-    @RequestMapping("/hello")
-    public String hello(Model model) {
-        model.addAttribute("message", "Hello from Thymeleaf!");
-        return "test";
-    }
+    CalendarService calendarService;
     @RequestMapping("/getAll")
     public String getAll(Model model) {
 
-        List<Calendar> list = calendarEventService.findAllDetail(null);
+        List<Calendar> list = calendarService.findAllDetail(null);
         model.addAttribute("list",list);
         return "calendar";
     }
@@ -45,8 +42,8 @@ public class CalendarController {
             calendar.setEventStartDate(startDate);
             calendar.setEventEndDate(endDate);
         }
-        calendarEventService.save(calendar);
-        List<Calendar> list = calendarEventService.findAllDetail(null);
+        calendarService.save(calendar);
+        List<Calendar> list = calendarService.findAllDetail(null);
         model.addAttribute("list",list);
         return "calendar";
     }
@@ -56,8 +53,8 @@ public class CalendarController {
         if(calendar.getEventId()==0) {
             calendar.setEventName(eventNameDel);
         }
-        calendarEventService.deleteEventByName(eventNameDel);
-        List<Calendar> list = calendarEventService.findAllDetail(null);
+        calendarService.deleteEventByName(eventNameDel);
+        List<Calendar> list = calendarService.findAllDetail(null);
         model.addAttribute("list",list);
         return "calendar";
     }

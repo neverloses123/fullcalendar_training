@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Hello world!
  *
+ * @author 2400048
  */
 @SpringBootApplication
 @EnableConfigurationProperties()  // 開啟SpringBoot自動化配置的引入

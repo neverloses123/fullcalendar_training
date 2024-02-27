@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class MainController {
     @RequestMapping("/")
     public ModelAndView index() throws Exception{
-        ModelAndView mav = new ModelAndView("insert");
+        ModelAndView mav = new ModelAndView("calendar");
         return mav;
     }
 }
