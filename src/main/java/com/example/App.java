@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author 2400048
  */
 @SpringBootApplication
-@EnableConfigurationProperties()  // 開啟SpringBoot自動化配置的引入
+@EnableConfigurationProperties()
 @RestController
 public class App extends SpringBootServletInitializer
 {

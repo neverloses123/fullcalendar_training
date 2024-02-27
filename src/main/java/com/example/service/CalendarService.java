@@ -10,32 +10,31 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author 2400048
+ */
 @Service
 @Transactional
-public class CalendarService {
+public class CalendarService
+{
     @Autowired
     private CalendarRepository eventRepository;
     @Autowired
     private CalendarRepositoryImpl calendarRepositoryImpl;
 
-    public List<Calendar> findAllDetail(Calendar eventName) {
+    public List<Calendar> findAllDetail(Calendar eventName)
+    {
         List<Calendar> calendarList = calendarRepositoryImpl.findAllDetail(eventName);
         return calendarList;
     }
-//    public Calendar findByEventName(String eventName) {
-//        List<Calendar> calendarList=eventRepository.findByEventName(eventName);
-//        Calendar calendar=null;
-//        if(calendarList.size()==0) {return null;}
-//        else {calendar=calendarList.get(0);}
-//
-//        return calendar;
-//    }
-    public Calendar get(String eventName) {
+    public Calendar get(String eventName)
+    {
         Calendar calendar=eventRepository.findByEventName(eventName).get(0);
         return calendar;
     }
     @Transactional(rollbackFor = Exception.class)
-    public void save(Calendar calendar){
+    public void save(Calendar calendar)
+    {
         boolean NEWPROJECT=false;
         if(calendar.getEventId()==0){NEWPROJECT=true;}
 
@@ -55,9 +54,11 @@ public class CalendarService {
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void deleteEventByName(String delName){
+    public void deleteEventByName(String delName)
+    {
         Calendar calendar = eventRepository.findByEventName(delName).get(0);
-        if (calendar != null) {
+        if (calendar != null)
+        {
             eventRepository.delete(calendar);
         }
     }

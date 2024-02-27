@@ -52,6 +52,4 @@ public class Calendar {
     public void setEventEndDate(Date eventEndDate) {
         this.eventEndDate = eventEndDate;
     }
-
-
 }

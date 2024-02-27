@@ -12,7 +12,11 @@ import java.util.Date;
 
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-public final class Utils {
+/**
+ * @author 2400048
+ */
+public final class Utils
+{
 	public static String[] colorMap = new String[]
 	{"#B71C1C", "#880E4F", "#1A237E", "#01579B", "#004D40", "#1B5E20", "#006064", "#0D47A1", "#4A148C", "#311B92",
 	 "#33691E", "#827717", "#F57F17", "#E65100", "#BF360C", "#3E2723", "#212121", "#263238", "#EF5350", "#FF6F00",
@@ -55,7 +59,7 @@ public final class Utils {
 	    HttpServletRequest request=attr.getRequest();
 	    
 	    HttpSession session = request.getSession(create);
-	    return session; // true == allow create
+	    return session;
 	}
 	
 	public static HttpServletRequest request() {

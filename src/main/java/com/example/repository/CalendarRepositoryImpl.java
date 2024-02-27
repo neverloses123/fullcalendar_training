@@ -10,11 +10,13 @@ import java.util.*;
 /**
  * @author 2400048
  */
-public class CalendarRepositoryImpl implements CalendarRepositoryCustomized {
+public class CalendarRepositoryImpl implements CalendarRepositoryCustomized
+{
     @PersistenceContext
     private EntityManager entityManager;
     @Override
-    public List<Calendar> findAllDetail(Calendar calendar){
+    public List<Calendar> findAllDetail(Calendar calendar)
+    {
 
         StringBuilder sb = new StringBuilder();
         sb.append(

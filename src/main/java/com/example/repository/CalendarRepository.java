@@ -12,7 +12,8 @@ import java.util.List;
  */
 @Repository("calendarEventRepository")
 @EnableJpaRepositories("com.example.repository")
-public interface CalendarRepository extends JpaRepository<Calendar, Long>, CalendarRepositoryCustomized {
+public interface CalendarRepository extends JpaRepository<Calendar, Long>, CalendarRepositoryCustomized
+{
     List<Calendar> findByEventName(String eventName);
 
 }

@@ -24,7 +24,8 @@ public class CalendarController {
     @Autowired
     CalendarService calendarService;
     @RequestMapping("/getAll")
-    public String getAll(Model model) {
+    public String getAll(Model model)
+    {
 
         List<Calendar> list = calendarService.findAllDetail(null);
         model.addAttribute("list",list);
@@ -36,7 +37,9 @@ public class CalendarController {
     public String saveEvent(@ModelAttribute("calendar") Calendar calendar,
                           @RequestParam("eventName") String eventName,
                           @DateTimeFormat(pattern = "yyyy-MM-dd") @RequestParam("startDate") Date startDate,
-                          @DateTimeFormat(pattern = "yyyy-MM-dd") @RequestParam("endDate") Date endDate,Model model) {
+                          @DateTimeFormat(pattern = "yyyy-MM-dd") @RequestParam("endDate") Date endDate,
+                            Model model)
+    {
         if(calendar.getEventId()==0) {
             calendar.setEventName(eventName);
             calendar.setEventStartDate(startDate);
@@ -49,8 +52,11 @@ public class CalendarController {
     }
     @PostMapping("/del")
     public String delEvent(@ModelAttribute("calendar") Calendar calendar,
-                           @RequestParam("eventNameDel") String eventNameDel,Model model){
-        if(calendar.getEventId()==0) {
+                           @RequestParam("eventNameDel") String eventNameDel,
+                           Model model)
+    {
+        if(calendar.getEventId()==0)
+        {
             calendar.setEventName(eventNameDel);
         }
         calendarService.deleteEventByName(eventNameDel);
