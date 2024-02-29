@@ -1,33 +1,25 @@
 package com.example.repository;
 
-import com.example.model.Calendar;
+import com.example.model.Member;
+import com.example.model.Project;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 
-import java.util.*;
+import java.util.List;
 
-/**
- * @author 2400048
- */
-public class CalendarRepositoryImpl implements CalendarRepositoryCustomized
-{
+public class ProjectRepositoryImpl implements ProjectRepositoryCustomized {
     @PersistenceContext
     private EntityManager entityManager;
     @Override
-    public List<Calendar> findAllDetail(Calendar calendar)
-    {
-
+    public List<Project> findAllDetail(Project project) {
         StringBuilder sb = new StringBuilder();
         sb.append(
-                "select * from event where 1=1"
+                "select * from project where 1=1"
         );
 
         Query query = (Query) entityManager.createNativeQuery(sb.toString());
-        List<Calendar> result =query.getResultList();
-
+        List<Project> result =query.getResultList();
         return result;
     }
-
-
 }

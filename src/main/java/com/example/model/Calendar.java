@@ -8,7 +8,7 @@ import java.util.Date;
  * @author 2400048
  */
 @Entity
-@Table(name="calendar_event_master")
+@Table(name="event")
 public class Calendar {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,6 +23,9 @@ public class Calendar {
 
     @Column(name = "event_end_date")
     private Date eventEndDate;
+
+    @Column(name = "event_project")
+    private String eventProject;
 
     public int getEventId() {
         return eventId;
@@ -51,5 +54,13 @@ public class Calendar {
 
     public void setEventEndDate(Date eventEndDate) {
         this.eventEndDate = eventEndDate;
+    }
+
+    public String getEventProject() {
+        return eventProject;
+    }
+
+    public void setEventProject(String eventProject) {
+        this.eventProject = eventProject;
     }
 }
