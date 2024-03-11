@@ -6,6 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
+/**
+ * @author 2400048
+ */
 public interface MemberRepository extends JpaRepository<Member, Long>, MemberRepositoryCustomized {
-    List<Member> findByEventName(String memberName);
+    List<Member> findByMemberName(String memberName);
 }

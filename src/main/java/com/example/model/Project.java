@@ -6,7 +6,7 @@ import jakarta.persistence.*;
  * @author 2400048
  */
 @Entity
-@Table(name="project")
+@Table(name = "project")
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,11 +16,11 @@ public class Project {
     @Column(name = "project_name")
     private String projectName;
 
-    @Column(name = "project_customer")
-    private String projectCustomer;
+    @Column(name = "customer_id")
+    private int projectCustomerId;
 
-    @Column(name = "project_member")
-    private String projectMember;
+    @Column(name = "member_id")
+    private int projectMemberId;
 
     @Column(name = "project_state")
     private String projectState;
@@ -29,30 +29,38 @@ public class Project {
         return projectId;
     }
 
+    public void setProjectId(int projectId) {
+        this.projectId = projectId;
+    }
+
     public String getProjectName() {
         return projectName;
     }
+
     public void setProjectName(String projectName) {
         this.projectName = projectName;
     }
 
-    public String getProjectCustomer() {
-        return projectCustomer;
-    }
-    public void setProjectCustomer(String projectCustomer) {
-        this.projectCustomer = projectCustomer;
+    public int getProjectCustomerId() {
+        return projectCustomerId;
     }
 
-    public String getProjectMember() {
-        return projectMember;
+    public void setProjectCustomerId(int projectCustomerId) {
+        this.projectCustomerId = projectCustomerId;
     }
-    public void setProjectMember(String projectMember) {
-        this.projectMember = projectMember;
+
+    public int getProjectMemberId() {
+        return projectMemberId;
+    }
+
+    public void setProjectMemberId(int projectMemberId) {
+        this.projectMemberId = projectMemberId;
     }
 
     public String getProjectState() {
         return projectState;
     }
+
     public void setProjectState(String projectState) {
         this.projectState = projectState;
     }

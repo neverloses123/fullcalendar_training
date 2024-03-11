@@ -7,6 +7,9 @@ import jakarta.persistence.Query;
 
 import java.util.List;
 
+/**
+ * @author 2400048
+ */
 public class MemberRepositoryImpl implements MemberRepositoryCustomized{
     @PersistenceContext
     private EntityManager entityManager;

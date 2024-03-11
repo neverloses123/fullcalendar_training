@@ -7,6 +7,9 @@ import jakarta.persistence.Query;
 
 import java.util.List;
 
+/**
+ * @author 2400048
+ */
 public class CustomerRepositoryImpl implements CustomerRepositoryCustomized{
     @PersistenceContext
     private EntityManager entityManager;
@@ -25,4 +28,5 @@ public class CustomerRepositoryImpl implements CustomerRepositoryCustomized{
 
         return result;
     }
+
 }

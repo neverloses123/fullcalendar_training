@@ -10,4 +10,5 @@ import java.util.List;
 public interface CalendarRepositoryCustomized
 {
     public  List<Calendar> findAllDetail(Calendar calendar);
+
 }

@@ -32,13 +32,30 @@
           }
           console.log(eventArray);
           var calendar = new FullCalendar.Calendar(calendarEl, {
+              eventClick: function(info) {
+                var eventObj = info.event;
+                if (eventObj.url) {
+                  alert(
+                    'Clicked ' + eventObj.title + '.\n' +
+                    'Will open ' + eventObj.url + ' in a new tab'
+                  );
+
+                  window.open(eventObj.url);
+
+                  info.jsEvent.preventDefault();
+                }
+                else
+                {
+                  window.open('http://localhost:8090/calendarEdit.html','NewWindow', 'height=500,width=500');
+                }
+              },
             locale: 'zh-tw',
             headerToolbar: {
               left: 'prevYear,prev,next,nextYear today',
               center: 'title',
               right: 'dayGridMonth,dayGridWeek,dayGridDay'
             },
-            initialDate: '2024-02-21',
+            initialDate: '2024-03-11',
             navLinks: true,
             editable: true,
             dayMaxEvents: true,
