@@ -10,6 +10,11 @@
     <script th:src="@{/jsfile/jquery/jquery-3.7.1.min.js}" type="text/javascript"></script>
 </head>
 <body>
-
+<input id="mode" name="mode" th:value="${mode}">
+<input id="project" name="project" th:value="${projectStr}">
+<input id="projectStr" name="projectStr" th:value="*{calendar}">
+<form  method="post" th:object="${calendar}" name="queryForm" id="queryForm">
+    <input id="calendarName" name="calendarName" th:value="${calendarName}">
+</form>
 </body>
 </html>

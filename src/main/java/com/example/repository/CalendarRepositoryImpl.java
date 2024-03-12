@@ -20,8 +20,8 @@ public class CalendarRepositoryImpl implements CalendarRepositoryCustomized
 
         StringBuilder sb = new StringBuilder();
         sb.append(
-                "select a.*,b.project from event" +
-                        "a left join project b on b.id=a.project_id where 1=1"
+                "select a.*,b.project_name from event" +
+                        " a left join project b on b.project_id=a.project_id where 1=1"
         );
 
         Query query = (Query) entityManager.createNativeQuery(sb.toString());
