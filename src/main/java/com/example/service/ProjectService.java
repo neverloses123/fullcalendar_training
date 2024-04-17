@@ -31,22 +31,40 @@ public class ProjectService {
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void save(Calendar calendar)
+    public void save(Project project)
     {
         boolean NEWPROJECT=false;
-        if(calendar.getEventId()==0){NEWPROJECT=true;}
+        if(project.getProjectId()==0){NEWPROJECT=true;}
 
         if(NEWPROJECT){
-            String eventName=calendar.getEventName();
-            calendar.setEventName(eventName);
-            projectRepository.save();
-            Date eventStartDate=calendar.getEventStartDate();
-            calendar.setEventStartDate(eventStartDate);
-            projectRepository.save();
+            String eventName=project.getProjectName();
+            project.setProjectName(eventName);
+            projectRepository.save(project);
 
-            Date eventEndDate=calendar.getEventEndDate();
-            calendar.setEventEndDate(eventEndDate);
-            projectRepository.save();
+            int projectCustomerId=project.getProjectCustomerId();
+            project.setProjectCustomerId(projectCustomerId);
+            projectRepository.save(project);
+
+            int projectMemberId=project.getProjectMemberId();
+            project.setProjectMemberId(projectMemberId);
+            projectRepository.save(project);
+
+            String projectState=project.getProjectState();
+            project.setProjectState(projectState);
+            projectRepository.save(project);
         }
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void deleteProjectByName(String delName)
+    {
+        Calendar calendar = eventRepository.findByEventName(delName).get(0);
+        if (calendar != null)
+        {
+            eventRepository.delete(calendar);
+        }
+    }
+    public Project get(int id) {
+        return projectRepository.findById((long) id).get();
     }
 }

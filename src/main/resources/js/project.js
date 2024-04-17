@@ -38,7 +38,7 @@ function querySubmit(){
       "filter": false,
       "ajax": {
         "cache": false,
-        "url": appPath+"/api/project/getAll",
+        "url": appPath+"/api/project/listAll",
         "type": "POST",
         "dataSrc": function ( data ) {
           //console.log('data in dataSrc='+JSON.stringify(data));
@@ -103,8 +103,7 @@ $(document).on("click", "#btnSureAction", function(event){
 });
 
 function doDelete(id){
-    call_get_api(appPath+'/myadmin/legacycustomer/api/delete/'+id, callback_delete);
-
+    call_get_api(appPath+'/api/project/del/'+id, callback_delete);
 }
 
 function callback_delete(data){

@@ -5,6 +5,22 @@
     <title>Project</title>
 </head>
 <body>
+<!--<form id="projectForm" name="projectForm" method="POST" th:action="@{/myadmin/project/save}" th:object="${project}">-->
+<!--    <label for="projectName"><span class="text-danger"></span>專案名稱</label>-->
+<!--    <input type="text" id="projectName"  name="projectName"  th:field="*{projectName}">-->
+<!--    <label for="projectCustomerId"></span>客戶</label>-->
+<!--    <select id="projectCustomerId" name="projectCustomerId" th:field="*{projectCustomerId}">-->
+<!--        <option value=0 selected="selected">請選擇</option>-->
+<!--        <option th:each="industry : ${industries}" th:value="${industry.id}" th:text="${industry.industry}"></option>-->
+<!--    </select>-->
+<!--    <label for="projectMemberId"></span>成員</label>-->
+<!--    <select id="projectMemberId" name="projectMemberId" th:field="*{projectMemberId}">-->
+<!--        <option value=0 selected="selected">請選擇</option>-->
+<!--        <option th:each="industry : ${industries}" th:value="${industry.id}" th:text="${industry.industry}"></option>-->
+<!--    </select>-->
+<!--    <label for="projectState"><span class="text-danger">*</span>專案狀態</label>-->
+<!--    <input type="text" id="projectState"  name="projectState"  th:field="*{projectState}">-->
+<!--</form>-->
 <div style=" font-size: 15px; overflow-x: auto; white-space: nowrap;" class="div-legacy">
     <table id="data_table" style="font-size: 15px;" class="table table-bordered table-striped">
         <thead>
@@ -13,6 +29,21 @@
             <th width="10%">下單公司</th>
             <th width="10%">客戶公司</th>
             <th width="10%">客戶公司(英文名)</th>
+            <th width="10%">統一編號</th>
+            <th width="10%">post code</th>
+            <th width="40%">地址</th>
+            <th width="20%">連絡電話</th>
+            <th width="10%">員工數</th>
+            <th width="20%">產業別</th>
+            <th width="20%">資本額</th>
+            <th width="20%">姓名</th>
+            <th width="10%">職稱</th>
+            <th width="30%">Email</th>
+            <th width="20%">公司電話</th>
+            <th width="10%">分機</th>
+            <th width="10%">行動電話</th>
+            <th width="10%">備註</th>
+            <th width="10%">公司狀況</th>
             <th width="10%"></th>
         </tr>
         </thead>
@@ -20,5 +51,6 @@
         </tbody>
     </table>
 </div>
+<script th:src="@{/js/project.js?(${#strings.randomAlphanumeric(5)})}"></script>
 </body>
 </html>
