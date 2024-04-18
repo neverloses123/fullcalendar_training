@@ -3,13 +3,13 @@
  */
 activateMenu('project');
 
-$(document).ready(function () {
-    //query();
-
-});
+//$(document).ready(function () {
+//    //query();
+//
+//});
 
 //_changeCompany();
-query();
+//query();
 
 
 function _clear(){
@@ -76,11 +76,11 @@ function querySubmit(){
 		{ "data": "projectMemberId" },
 		{ "data": "projectState" },
         {
-            "data": function (source, type, val) {
-                var edit='<i class="fa fa-edit fa-lg text-primary" aria-hidden="true" onclick="location.href=\''+appPath+'/myadmin/legacycustomer/edit/'+source.id+'\'"></i>&nbsp;';
-                edit+='<i class="fa fa-trash fa-lg text-danger" aria-hidden="true" onclick="initDelete('+source.id+');"></i>';
-                return edit;
-            }
+//            "data": function (source, type, val) {
+//                var edit='<i class="fa fa-edit fa-lg text-primary" aria-hidden="true" onclick="location.href=\''+appPath+'/apt/project/edit/'+source.id+'\'"></i>&nbsp;';
+//                edit+='<i class="fa fa-trash fa-lg text-danger" aria-hidden="true" onclick="initDelete('+source.id+');"></i>';
+//                return edit;
+//            }
         }
       ],
       "initComplete": function (settings, json) {
@@ -95,22 +95,22 @@ function initDelete(delId){
 	$('#option').val(delId);
 }
 
-$(document).on("click", "#btnSureAction", function(event){
-	var delId=parseInt($('#option').val());
+//$(document).on("click", "#btnSureAction", function(event){
+//	var delId=parseInt($('#option').val());
+//
+//    $('#deleteModalCenter').modal('hide');
+//    //doDelete(delId);
+//});
 
-    $('#deleteModalCenter').modal('hide');
-    doDelete(delId);
-});
+//function doDelete(id){
+//    call_get_api(appPath+'/api/project/del/'+id, callback_delete);
+//}
 
-function doDelete(id){
-    call_get_api(appPath+'/api/project/del/'+id, callback_delete);
-}
-
-function callback_delete(data){
-    //console.log('data='+JSON.stringify(data));
-    if(data.status=='success'){
-        $('#data_table').DataTable().ajax.reload();
-    }else{
-        alertMessage('刪除客戶資料失敗，請聯繫系統管理員。');
-    }
-}
+//function callback_delete(data){
+//    //console.log('data='+JSON.stringify(data));
+//    if(data.status=='success'){
+//        $('#data_table').DataTable().ajax.reload();
+//    }else{
+//        alertMessage('刪除客戶資料失敗，請聯繫系統管理員。');
+//    }
+//}

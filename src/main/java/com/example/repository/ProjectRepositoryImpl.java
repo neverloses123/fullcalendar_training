@@ -18,9 +18,9 @@ public class ProjectRepositoryImpl implements ProjectRepositoryCustomized {
     public List<Project> findAllDetail(Project project) {
         StringBuilder sb = new StringBuilder();
         sb.append(
-                "select a.*,b.member,c.customer from project " +
-                        "a left join member b on b.id=a.member_id" +
-                        "left join customer c on c.id=a.customer_id where 1=1"
+                "select a.*,b.member_id,c.customer_id from project " +
+                        "a left join member b on b.member_id=a.member_id" +
+                        " left join customer c on c.customer_id=a.customer_id where 1=1"
         );
 
         Query query = (Query) entityManager.createNativeQuery(sb.toString());

@@ -4,8 +4,10 @@ package com.example.controller;
 
 import com.example.model.Calendar;
 import com.example.model.Customer;
+import com.example.model.Member;
 import com.example.model.Project;
 //import com.example.service.CustomerService;
+import com.example.service.MemberService;
 import com.example.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -24,14 +26,20 @@ import java.util.List;
 public class ProjectController {
     @Autowired
     private ProjectService projectService;
-    @Autowired
+//    @Autowired
+//    private MemberService memberService;
+//    @Autowired
 //    private CustomerService customerService;
     @RequestMapping("/listAll")
     public String getAll(Model model)
     {
+        List<Customer> customerList = projectService.getAllCustomer();
+        List<Member> memberList = projectService.getAllMember();
         List<Project> list = projectService.findAllDetail(null);
+        model.addAttribute("customer", customerList);
+        model.addAttribute("member", memberList);
         model.addAttribute("list",list);
-        return "calendar";
+        return "project";
     }
     @PostMapping("/save")
     public String saveProject(@ModelAttribute("project") Project project,

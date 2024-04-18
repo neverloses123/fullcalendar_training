@@ -1,11 +1,10 @@
 package com.example.service;
 
 import com.example.model.Calendar;
+import com.example.model.Customer;
+import com.example.model.Member;
 import com.example.model.Project;
-import com.example.repository.CalendarRepository;
-import com.example.repository.CalendarRepositoryImpl;
-import com.example.repository.ProjectRepository;
-import com.example.repository.ProjectRepositoryImpl;
+import com.example.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,11 +22,24 @@ public class ProjectService {
     @Autowired
     private ProjectRepository projectRepository;
     @Autowired
+    private CustomerRepository customerRepository;
+    @Autowired
+    private MemberRepository memberRepository;
+    @Autowired
     private ProjectRepositoryImpl projectRepositoryImpl;
     public List<Project> findAllDetail(Project project)
     {
-        List<Project> projectList = projectRepositoryImpl.findAllDetail(project);
+        //List<Project> projectList = projectRepositoryImpl.findAllDetail(project);
+        List<Project> projectList = projectRepository.findAll();
         return projectList;
+    }
+    public List<Customer> getAllCustomer(){
+        List<Customer> customerList = customerRepository.findAll();
+        return customerList;
+    }
+    public List<Member> getAllMember(){
+        List<Member> memberList = memberRepository.findAll();
+        return memberList;
     }
 
     @Transactional(rollbackFor = Exception.class)
